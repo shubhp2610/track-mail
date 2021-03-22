@@ -99,7 +99,7 @@
   s += "</tbody></table>";
   localStorage.setItem("_fetched_data", s);
 }
-getText("https://track.mail.shubh.online/api/index.php");
+getText("https://track-mail-api.vercel.app/api/get/1c2fb7ba-349f-4211-a2c1-ddb188be59f4");
 document.getElementById("app").innerHTML = localStorage.getItem("_fetched_data");
       
       const characters =
@@ -118,7 +118,7 @@ document.getElementById("app").innerHTML = localStorage.getItem("_fetched_data")
       }
       function myScript() {
         let str =
-          "https://track.mail.shubh.online/api.php?id=" +
+          "https://track-mail-api.vercel.app/api/post?user=1c2fb7ba-349f-4211-a2c1-ddb188be59f4&id=" +
           document.getElementById("myin").value;
         let s =
           '<div class="alert alert-success" role="alert">' +
