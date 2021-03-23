@@ -1,9 +1,70 @@
-.time {
-  font-size: 14px;
-  font-weight: bold;
-  color: #7011f4;
+@font-face {
+  font-family: sourcecodepro;
+  src: url('https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPevW.woff2');
 }
-.ip {
-  font-weight: bold;
-  color: #2cae1e;
+body{
+  font-family: consolas;
+}
+.time {
+    font-size: 14px;
+    font-weight: bold;
+    color: #7011f4;
+  }
+  .ip {
+    font-weight: bold;
+    color: #2cae1e;
+  }
+
+.mainBlock{
+  margin-right: auto;
+  margin-left: auto;
+  font-family: sourcecodepro;
+}
+.arrow-b{
+   margin-right: 10px;
+   margin-left: auto;
+   height: 24px;
+}
+.arrow-g{
+  margin-right: 10px;
+  margin-left: auto;
+  height: 24px;
+}
+.inner{
+  padding-left: 40px;
+  font-size: 20px;
+}
+.outter{
+  font-size: 22px;
+}
+.purple{
+  color: #640FDB;
+  background-color:#E2CFFC ;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 4px;
+}
+.green{
+  color: #089A24;
+  background-color: #CEF2D5;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 4px;
+}
+.newBar{
+
+}.newBtn{
+    background-color:#0073CC;
+    color: white;
+    border: solid #0073CC;
+}
+@media only screen and (max-width: 600px) {
+  .inner{
+    padding-left: 25px;
+    font-size: 16px;
+  }
 }
