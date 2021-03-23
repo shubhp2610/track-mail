@@ -1,138 +1,104 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
+
     <title>Track Mail</title>
     <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
-    <link
-      href="src/styles.css"
-      rel="stylesheet"/>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-   
-  </head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
-  <body>
-    <button
-      type="button"
-      class="btn btn-primary text-right m-3"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
-    >
-      Add New
-    </button>
-    <div id="newLink"></div>
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New Tracking</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >New Id</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="myin"
-                  aria-describedby="emailHelp"
-                />
-              </div>
-            </form>
-            <button
-              class="btn btn-primary"
-              onclick="myScript()"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
-              Generate
-            </button>
-          </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/style.css" />
+
+</head>
+
+<body translate="no" data-new-gr-c-s-check-loaded="14.1000.0" data-gr-ext-installed="">
+    <div class="card">
+        <div class="card-body">
+            <input class="newBar" type="text" id="myin" placeholder="new tracking" />
+            <button class="newBtn" onclick="myScript()">Generate</button>
         </div>
-      </div>
     </div>
+    <div id="newLink"></div>
     <div id="app"></div>
+    <!--<div class="col-lg-8 col-md-10 col-sm-12 mainBlock">
+        <div class="row">
+            <div class="col-sm-12 outter"><img src="blue.svg" class="arrow-b" />Jay Ganpati Dada</div>
+            <div class="col-sm-12 inner"><img src="green.svg" class="arrow-g" /><span class="purple">23-3-2021
+                    09:18:08</span> <span class="green">66.249.84.17</span></div>
+        </div>
+    </div>-->
 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
-      async function getText(file) {
-  let myObject = await fetch(file);
-  let myText = await myObject.text();
-  let jj = JSON.parse(myText);
-  let s =
-    '<table class="table"><!---<thead><tr><th scope="col">ip</th><th scope="col">ip</th></tr></thead>---><tbody>';
-  for (let i = 0; i < jj.length; i++) {
-   
-    s +=
-      "<tr><td>" +
-      jj[i].email_id +
-      '<br><span class="time">' +
-      jj[i].time +
-      '</span>&nbsp;<span class="ip">' +
-      jj[i].ip +
-      "</span></td></tr>";
-  }
-  s += "</tbody></table>";
-  localStorage.setItem("_fetched_data", s);
-}
-getText("https://track-mail-api.vercel.app/api/get/1c2fb7ba-349f-4211-a2c1-ddb188be59f4");
-document.getElementById("app").innerHTML = localStorage.getItem("_fetched_data");
-      
-      const characters =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        async function getText(file) {
+            let myObject = await fetch(file);
+            let myText = await myObject.text();
+            let jj = JSON.parse(myText);
+            let f = {};
+            for (let i = 0; i < jj.length; i++) {
 
-      function generateString(length) {
-        let result = "";
-        const charactersLength = characters.length;
-        for (let i = 0; i < length; i++) {
-          result += characters.charAt(
-            Math.floor(Math.random() * charactersLength)
-          );
+                if (f[jj[i].email_id]) {
+                    let ss = f[jj[i].email_id] + "|" + jj[i].time + "Z" + jj[i].ip;
+                    f[jj[i].email_id] = ss;
+                } else {
+                    f[jj[i].email_id] = jj[i].time + "Z" + jj[i].ip;
+                }
+
+            }
+            let s = "";
+            for (var k in f) {
+                s += '<div class="col-lg-8 col-md-10 col-sm-12 mainBlock"><div class="row"><div class="col-sm-12 outter"><img src="blue.svg" class="arrow-b" />' + k + '</div>';
+                var a1 = f[k].split("|");
+                for (var kk in a1) {
+                    var a2 = a1[kk].split('Z');
+
+                    s += '<div class="col-sm-12 inner"><img src="green.svg" class="arrow-g" /><span class="purple">' + a2[0] + '</span> <span class="green">' + a2[1] + '</span></div>';
+
+                }
+
+                s += '</div></div>';
+            }
+
+            document.getElementById("app").innerHTML = s;
         }
+        getText("https://track-mail-api.vercel.app/api/get/1c2fb7ba-349f-4211-a2c1-ddb188be59f4");
 
-        return result;
-      }
-      function myScript() {
-        let str =
-          "https://track-mail-api.vercel.app/api/post?user=1c2fb7ba-349f-4211-a2c1-ddb188be59f4&id=" +
-          document.getElementById("myin").value;
-        let s =
-          '<div class="alert alert-success" role="alert">' +
-          str +
-          "&secret=" +
-          generateString(5) +
-          "-" +
-          generateString(6) +
-          "-" +
-          generateString(5) +
-          "</div>";
-        document.getElementById("newLink").innerHTML = s;
-      }
+
+        const characters =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        function myScript() {
+            let str =
+                "https://track-mail-api.vercel.app/api/post?user=1c2fb7ba-349f-4211-a2c1-ddb188be59f4&id=" +
+                document.getElementById("myin").value;
+            let s =
+                '<div class="alert alert-success" role="alert">' +
+                str + "</div>";
+            document.getElementById("newLink").innerHTML = s;
+
+
+            navigator.clipboard.writeText(str).then(function () {
+                console.log('Async: Copying to clipboard was successful!');
+            }, function (err) {
+                console.error('Async: Could not copy text: ', err);
+            });
+        }
     </script>
-  </body>
+
+
+
+
+
+
+</body>
+
 </html>
