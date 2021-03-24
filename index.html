@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="src/styles.css" />
 <script>
      var match = document.cookie.match(new RegExp('(^| )' + "username" + '=([^;]+)'));
-  console.log(match[2]);
+  if(match[2]){}else{window.location.href = "https://panel.shubh.online/signin/";}
+  
     </script>
 </head>
 
@@ -75,7 +76,9 @@
 
             document.getElementById("app").innerHTML = s;
         }
-        getText("https://track-mail-api.vercel.app/api/get/1c2fb7ba-349f-4211-a2c1-ddb188be59f4");
+        var match = document.cookie.match(new RegExp('(^| )' + "username" + '=([^;]+)'));
+  
+        getText("https://track-mail-api.vercel.app/api/get/"+match[2]);
 
 
         const characters =
