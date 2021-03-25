@@ -190,7 +190,7 @@ input[type="submit"] {
   --loginBorderRadus: 0.25rem;
   --loginColor: #eee;
 
-  --loginInputBackgroundColor: #d6e9ff;
+  --loginInputBackgroundColor: #000;
   --loginInputHoverBackgroundColor: #c7d4e2;
 
   --loginLabelBackgroundColor: #0073ff;
