@@ -4,6 +4,8 @@
 }
 body{
   font-family: consolas;
+  color:#fff;
+  background-color:#202124;
 }
 .time {
     font-size: 14px;
